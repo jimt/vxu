@@ -1,0 +1,53 @@
+.\" vxur - Yaesu/Vertex read and write for Unix  -*- nroff -*-
+.\" Copyright (C) 2002 James W. Tittsler <7J1AJH@OnJapan.net>
+,\" 
+
+.TH "vxur" 1
+.SH "NAME"
+vxur,vxuw \- Yaesu/Vertex radio clone mode read and write
+.SH "SYNOPSIS"
+.B vxur
+.I [options...] file
+.br
+.B vxuw
+.I [options...] file
+.SH "DESCRIPTION"
+.B vxur
+is a small program that receives data from a Yaesu radio in
+.I clone
+mode and saves it to a file.
+.B yawrl
+reads the specified file and sends it to the radio.
+.SH "OPTIONS"
+.TP
+.B -d, --device
+Specify the serial device to use. (default /dev/ttyS0)
+.TP
+.B -h, --hash
+Echo a '.' for each block received (sent) and a '#' for
+each 200 bytes of data.
+.TP
+.B -v, --verbose
+Display program information.
+.TP
+.B -?, --help
+Display the command line options and exit.
+.SH "Upload FROM Radio"
+- turn on the radio in clone mode (for example, with the VX-5R, hold down
+FW button while turning on)
+.PP
+- start vxur
+.PP
+- tell the radio to start sending by pressing the VFO button
+.SH "Download TO Radio"
+- turn on the radio in clone mode
+.PP
+- tell the radio to start waiting for data by pressing the MR button
+.PP
+- start download with vxuw (e.g. 'vxuw -d /dev/ttyS1 -h myfile.eve')
+.SH "AUTHOR"
+Jim Tittsler <7J1AJH@OnJapan.net>
+
+Original Windows yard/yawr utilities by Jose R. Camara
+<camaraya@quatacorp.com>
+
